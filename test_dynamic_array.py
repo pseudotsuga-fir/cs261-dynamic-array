@@ -22,56 +22,56 @@ class TestDynamicArray(unittest.TestCase):
         except NameError:
             self.fail("Could not instantiate DynamicArray.")
 
-    # def test_default_initial_capacity(self):
-    #     """
-    #     The default initial capacity is ten.
-    #     """
-    #     a = DynamicArray()
-    #     self.assertEqual(10, a.capacity)
+    def test_default_initial_capacity(self):
+        """
+        The default initial capacity is ten.
+        """
+        a = DynamicArray()
+        self.assertEqual(10, a.capacity)
 
-    # def test_initially_empty(self):
-    #     """
-    #     A dynamic array is initially empty.
-    #     """
-    #     a = DynamicArray()
-    #     self.assertTrue(a.is_empty())
+    def test_initially_empty(self):
+        """
+        A dynamic array is initially empty.
+        """
+        a = DynamicArray()
+        self.assertTrue(a.is_empty())
 
-    # def test_initial_length(self):
-    #     """
-    #     A dynamic array has an initial length of 0.
-    #     """
-    #     a = DynamicArray()
-    #     self.assertEqual(0, len(a))
+    def test_initial_length(self):
+        """
+        A dynamic array has an initial length of 0.
+        """
+        a = DynamicArray()
+        self.assertEqual(0, len(a))
 
 
     # """
     # Appending and retrieving one value
     # """
 
-    # # Hint: Do the naive thing.
-    # def test_append_one_value_to_empty(self):
-    #     """
-    #     A single value can be appended to and retrieved from a dynamic array.
-    #     """
-    #     a = DynamicArray()
-    #     a.append(42)
-    #     self.assertEqual(42, a[0])
+    # Hint: Do the naive thing.
+    def test_append_one_value_to_empty(self):
+        """
+        A single value can be appended to and retrieved from a dynamic array.
+        """
+        a = DynamicArray()
+        a.append(42)
+        self.assertEqual(42, a[0])
 
     # """
     # Appending and retrieving two values
     # """
 
-    # # Tip: If you haven't gotten this to pass within two minutes, comment it out
-    # # and move on.
+    # Tip: If you haven't gotten this to pass within two minutes, comment it out
+    # and move on.
     # def test_append_two_values(self):
     #     """
     #     Two values can be appended to and retrieved from a dynamic array.
     #     """
-    #     a = DynamicArray()
-    #     a.append(8)
-    #     a.append(6)
-    #     self.assertEqual(8, a[0])
-    #     self.assertEqual(6, a[1])
+        # a = DynamicArray()
+        # a.append(8)
+        # a.append(6)
+        # self.assertEqual(8, a[0])
+        # self.assertEqual(6, a[1])
 
     # """
     # Guiding internal data storage, with a static array
@@ -81,25 +81,25 @@ class TestDynamicArray(unittest.TestCase):
     #     """
     #     Has an internal `data` property that is a numpy ndarray.
     #     """
-    #     import numpy as np # Hint: Get an error? Just `pip3 install numpy`
-    #     a = DynamicArray()
-    #     self.assertEqual(np.ndarray, type(a.data))
+        import numpy as np # Hint: Get an error? Just `pip3 install numpy`
+        a = DynamicArray()
+        self.assertEqual(np.ndarray, type(a.data))
 
     # def test_data_object_references(self):
     #     """
     #     Internal data array stores object references.
     #     """
-    #     import numpy as np # Hint: Get an error? Just `pip3 install numpy`
-    #     a = DynamicArray()
-    #     self.assertEqual('O', a.data.dtype)
+        import numpy as np # Hint: Get an error? Just `pip3 install numpy`
+        a = DynamicArray()
+        self.assertEqual('O', a.data.dtype)
 
     # def test_data_size(self):
     #     """
     #     Length of the data array is the same as the DynamicArray capacity.
     #     """
-    #     import numpy as np # Hint: Get an error? Just `pip3 install numpy`
-    #     a = DynamicArray()
-    #     self.assertEqual(len(a.data), a.capacity)
+        import numpy as np # Hint: Get an error? Just `pip3 install numpy`
+        a = DynamicArray()
+        self.assertEqual(len(a.data), a.capacity)
 
     # """
     # Guiding appending and retrieving one value.
