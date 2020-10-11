@@ -3,11 +3,11 @@
 # YOUR NAME
 import numpy as np
 class DynamicArray:
-    data = np.empty(0)
     pass
     def __init__(self):
         self.capacity = 10
         self.length = 0
+        self.next_index = 0
         self.data = np.empty(self.capacity, object)
     
     def __len__(self):
@@ -19,7 +19,8 @@ class DynamicArray:
         return False
     
     def append(self,num):
-        self.data = np.array([num])
+        self.data[self.next_index] = num
+        self.next_index += 1
 
     def __getitem__(self, index):
         return self.data[index]
