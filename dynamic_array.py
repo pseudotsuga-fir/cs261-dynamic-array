@@ -8,13 +8,13 @@ class DynamicArray:
     def __init__(self):
         self.capacity = 10
         self.length = 0
-        self.data = np.empty(self.length, object)
+        self.data = np.empty(self.capacity, object)
     
     def __len__(self):
         return self.length
 
     def is_empty(self):
-        if len(self.data) == 0:
+        if self.length == 0:
             return True
         return False
     
