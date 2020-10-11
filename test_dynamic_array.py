@@ -253,270 +253,270 @@ class TestDynamicArray(unittest.TestCase):
         self.assertEqual('fo', last_element)
         self.assertEqual(2, len(a))
 
-    # def test_pop_empty(self):
-    #     """
-    #     Popping from an empty list raises an IndexError: pop from empty array
-    #     """
-    #     a = DynamicArray()
-    #     try:
-    #         a.pop()
-    #         self.fail("Did not raise IndexError: index out of range.")
-    #     except IndexError:
-    #         pass
+    def test_pop_empty(self):
+        """
+        Popping from an empty list raises an IndexError: pop from empty array
+        """
+        a = DynamicArray()
+        try:
+            a.pop()
+            self.fail("Did not raise IndexError: index out of range.")
+        except IndexError:
+            pass
 
-    # """
-    # Deleting
-    # """
+    """
+    Deleting
+    """
 
-    # def test_delete_last(self):
-    #     """
-    #     Deleting the last element removes it from the dynamic array.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.delete(2)
-    #     self.assertEqual(2, len(a))
-    #     self.assertEqual('fi', a.pop())
+    def test_delete_last(self):
+        """
+        Deleting the last element removes it from the dynamic array.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.delete(2)
+        self.assertEqual(2, len(a))
+        self.assertEqual('fi', a.pop())
 
-    # def test_delete_invalid_index(self):
-    #     """
-    #     Deleting an out of bounds index raises an IndexError: index out of range
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     try:
-    #         a.delete(3)
-    #         a.delete(-1)
-    #         self.fail("Did not raise IndexError: index out of range.")
-    #     except IndexError:
-    #         pass
+    def test_delete_invalid_index(self):
+        """
+        Deleting an out of bounds index raises an IndexError: index out of range
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        try:
+            a.delete(3)
+            a.delete(-1)
+            self.fail("Did not raise IndexError: index out of range.")
+        except IndexError:
+            pass
 
-    # def test_delete_first(self):
-    #     """
-    #     Deleting the first element shifts remaining elements to the left.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.delete(0)
-    #     self.assertEqual(2, len(a))
-    #     self.assertEqual('fi', a[0])
-    #     self.assertEqual('fo', a[1])
+    def test_delete_first(self):
+        """
+        Deleting the first element shifts remaining elements to the left.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.delete(0)
+        self.assertEqual(2, len(a))
+        self.assertEqual('fi', a[0])
+        self.assertEqual('fo', a[1])
 
-    # def test_delete_middle(self):
-    #     """
-    #     Deleting from the middle shifts remaining elements to the left.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.delete(1)
-    #     self.assertEqual(2, len(a))
-    #     self.assertEqual('fee', a[0])
-    #     self.assertEqual('fo', a[1])
+    def test_delete_middle(self):
+        """
+        Deleting from the middle shifts remaining elements to the left.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.delete(1)
+        self.assertEqual(2, len(a))
+        self.assertEqual('fee', a[0])
+        self.assertEqual('fo', a[1])
 
-    # def test_delete_empty(self):
-    #     """
-    #     Deleting from an empty array raises an IndexError: index out of range
-    #     """
-    #     a = DynamicArray()
-    #     try:
-    #         a.delete(0)
-    #         self.fail("Did not raise IndexError: index out of range.")
-    #     except IndexError:
-    #         pass
+    def test_delete_empty(self):
+        """
+        Deleting from an empty array raises an IndexError: index out of range
+        """
+        a = DynamicArray()
+        try:
+            a.delete(0)
+            self.fail("Did not raise IndexError: index out of range.")
+        except IndexError:
+            pass
 
-    # """
-    # Basic insertion
-    # """
+    """
+    Basic insertion
+    """
 
-    # def test_insert_end(self):
-    #     """
-    #     Inserting after the last element adds the element to the end of the array.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.insert(3, 'funk')
-    #     self.assertEqual(4, len(a))
-    #     self.assertEqual('fo', a[2])
-    #     self.assertEqual('funk', a[3])
+    def test_insert_end(self):
+        """
+        Inserting after the last element adds the element to the end of the array.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.insert(3, 'funk')
+        self.assertEqual(4, len(a))
+        self.assertEqual('fo', a[2])
+        self.assertEqual('funk', a[3])
 
-    # def test_insert_invalid_index(self):
-    #     """
-    #     Inserting an out of bounds index raises an IndexError: index out of range.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     try:
-    #         a.insert(4, 'this is more than the next available index')
-    #         a.insert(-1, 'this is less than the first index')
-    #         self.fail("Did not raise IndexError: index out of range.")
-    #     except IndexError:
-    #         pass
+    def test_insert_invalid_index(self):
+        """
+        Inserting an out of bounds index raises an IndexError: index out of range.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        try:
+            a.insert(4, 'this is more than the next available index')
+            a.insert(-1, 'this is less than the first index')
+            self.fail("Did not raise IndexError: index out of range.")
+        except IndexError:
+            pass
 
-    # def test_insert_first(self):
-    #     """
-    #     Inserting a new first element shifts remaining elements to the right.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.insert(0, 'foo')
-    #     self.assertEqual(4, len(a))
-    #     self.assertEqual('foo', a[0])
-    #     self.assertEqual('fee', a[1])
-    #     self.assertEqual('fi', a[2])
-    #     self.assertEqual('fo', a[3])
+    def test_insert_first(self):
+        """
+        Inserting a new first element shifts remaining elements to the right.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.insert(0, 'foo')
+        self.assertEqual(4, len(a))
+        self.assertEqual('foo', a[0])
+        self.assertEqual('fee', a[1])
+        self.assertEqual('fi', a[2])
+        self.assertEqual('fo', a[3])
 
-    # def test_insert_middle(self):
-    #     """
-    #     Inserting into the middle shifts elements to the right, to the right.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     a.append('fo')
-    #     a.insert(1, 'foo')
-    #     self.assertEqual(4, len(a))
-    #     self.assertEqual('fee', a[0])
-    #     self.assertEqual('foo', a[1])
-    #     self.assertEqual('fi', a[2])
-    #     self.assertEqual('fo', a[3])
+    def test_insert_middle(self):
+        """
+        Inserting into the middle shifts elements to the right, to the right.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        a.append('fo')
+        a.insert(1, 'foo')
+        self.assertEqual(4, len(a))
+        self.assertEqual('fee', a[0])
+        self.assertEqual('foo', a[1])
+        self.assertEqual('fi', a[2])
+        self.assertEqual('fo', a[3])
 
-    # def test_insert_empty(self):
-    #     """
-    #     Inserting into an empty array at position 0 is ok.
-    #     """
-    #     a = DynamicArray()
-    #     a.insert(0, 'foo')
-    #     self.assertEqual(1, len(a))
-    #     self.assertEqual('foo', a[0])
+    def test_insert_empty(self):
+        """
+        Inserting into an empty array at position 0 is ok.
+        """
+        a = DynamicArray()
+        a.insert(0, 'foo')
+        self.assertEqual(1, len(a))
+        self.assertEqual('foo', a[0])
 
-    # """
-    # Fullness
-    # """
+    """
+    Fullness
+    """
 
-    # def test_empty_not_full(self):
-    #     """
-    #     An empty dynamic array is not full.
-    #     """
-    #     a = DynamicArray()
-    #     self.assertFalse(a.is_full())
+    def test_empty_not_full(self):
+        """
+        An empty dynamic array is not full.
+        """
+        a = DynamicArray()
+        self.assertFalse(a.is_full())
 
-    # def test_less_than_capacity(self):
-    #     """
-    #     A dynamic array with a number of elements less than capacityis not full.
-    #     """
-    #     a = DynamicArray()
-    #     a.append('fee')
-    #     a.append('fi')
-    #     self.assertTrue(len(a) < a.capacity)
-    #     self.assertFalse(a.is_full())
+    def test_less_than_capacity(self):
+        """
+        A dynamic array with a number of elements less than capacityis not full.
+        """
+        a = DynamicArray()
+        a.append('fee')
+        a.append('fi')
+        self.assertTrue(len(a) < a.capacity)
+        self.assertFalse(a.is_full())
 
-    # def test_full(self):
-    #     """
-    #     A dynamic array is full when the number of elements fills its internal data array
-    #     """
-    #     a = DynamicArray()
-    #     for _ in range(0, a.capacity):
-    #         a.append('fake')
-    #     self.assertEqual(10, len(a))
-    #     self.assertEqual(10, a.next_index)
-    #     self.assertEqual(len(a), a.capacity)
-    #     self.assertTrue(a.is_full())
+    def test_full(self):
+        """
+        A dynamic array is full when the number of elements fills its internal data array
+        """
+        a = DynamicArray()
+        for _ in range(0, a.capacity):
+            a.append('fake')
+        self.assertEqual(10, len(a))
+        self.assertEqual(10, a.next_index)
+        self.assertEqual(len(a), a.capacity)
+        self.assertTrue(a.is_full())
 
-    # """
-    # Increasing capacity
-    # """
+    """
+    Increasing capacity
+    """
 
-    # def test_append_to_full(self):
-    #     """
-    #     A full dynamic array expands to accommodate a new appended element.
-    #     """
-    #     a = DynamicArray()
-    #     for _ in range(0, a.capacity):
-    #         a.append('fake')
-    #     a.append('new value')
-    #     self.assertEqual('new value', a[10])
+    def test_append_to_full(self):
+        """
+        A full dynamic array expands to accommodate a new appended element.
+        """
+        a = DynamicArray()
+        for _ in range(0, a.capacity):
+            a.append('fake')
+        a.append('new value')
+        self.assertEqual('new value', a[10])
 
-    # def test_new_capacity(self):
-    #     """
-    #     When expanding, a dynamic array doubles its capacity
-    #     """
-    #     a = DynamicArray()
-    #     for _ in range(0, a.capacity):
-    #         a.append('fake')
-    #     old_capacity = a.capacity
-    #     a.append('new value')
-    #     self.assertEqual(2 * old_capacity, a.capacity)
+    def test_new_capacity(self):
+        """
+        When expanding, a dynamic array doubles its capacity
+        """
+        a = DynamicArray()
+        for _ in range(0, a.capacity):
+            a.append('fake')
+        old_capacity = a.capacity
+        a.append('new value')
+        self.assertEqual(2 * old_capacity, a.capacity)
 
-    # def test_insert_to_full(self):
-    #     """
-    #     A full dynamic array expands to accommodate a new inserted element.
-    #     """
-    #     a = DynamicArray()
-    #     for i in range(0, a.capacity):
-    #         a.append(f"fake{i}")
-    #     a.insert(0, 'new value')
-    #     self.assertEqual('new value', a[0])
-    #     self.assertEqual('fake0', a[1])
-    #     self.assertEqual('fake9', a[10])
+    def test_insert_to_full(self):
+        """
+        A full dynamic array expands to accommodate a new inserted element.
+        """
+        a = DynamicArray()
+        for i in range(0, a.capacity):
+            a.append(f"fake{i}")
+        a.insert(0, 'new value')
+        self.assertEqual('new value', a[0])
+        self.assertEqual('fake0', a[1])
+        self.assertEqual('fake9', a[10])
 
 
-    # """
-    # Max, min, and sum
-    # """
+    """
+    Max, min, and sum
+    """
 
-    # def test_max(self):
-    #     """
-    #     Max method returns the largest value in the dynamic array.
-    #     """
-    #     a = DynamicArray()
-    #     for _ in range(0, 9):
-    #         a.append(random.randint(0, 100))
-    #     largest_value = random.randint(101, 150)
-    #     a.insert(random.randint(0, 9), largest_value)
-    #     self.assertEqual(largest_value, a.max())
+    def test_max(self):
+        """
+        Max method returns the largest value in the dynamic array.
+        """
+        a = DynamicArray()
+        for _ in range(0, 9):
+            a.append(random.randint(0, 100))
+        largest_value = random.randint(101, 150)
+        a.insert(random.randint(0, 9), largest_value)
+        self.assertEqual(largest_value, a.max())
 
-    # def test_min(self):
-    #     """
-    #     Min method returns the smallest value in the dynamic array.
-    #     """
-    #     a = DynamicArray()
-    #     for _ in range(0, 9):
-    #         a.append(random.randint(100, 200))
-    #     smallest_value = random.randint(0, 50)
-    #     a.insert(random.randint(0, 9), smallest_value)
-    #     self.assertEqual(smallest_value, a.min())
+    def test_min(self):
+        """
+        Min method returns the smallest value in the dynamic array.
+        """
+        a = DynamicArray()
+        for _ in range(0, 9):
+            a.append(random.randint(100, 200))
+        smallest_value = random.randint(0, 50)
+        a.insert(random.randint(0, 9), smallest_value)
+        self.assertEqual(smallest_value, a.min())
 
-    # def test_sum(self):
-    #     """
-    #     Sum method returns the sum of all values in the dynamic array.
-    #     """
-    #     a = DynamicArray()
-    #     for val in range(10, 15):
-    #         a.append(val)
-    #     self.assertEqual(60, a.sum())
+    def test_sum(self):
+        """
+        Sum method returns the sum of all values in the dynamic array.
+        """
+        a = DynamicArray()
+        for val in range(10, 15):
+            a.append(val)
+        self.assertEqual(60, a.sum())
 
-    # def test_max_min_sum_of_empty(self):
-    #     """
-    #     The max, min or sum of an empty dynamic array is None.
-    #     """
-    #     a = DynamicArray()
-    #     self.assertEqual(None, a.sum())
-    #     self.assertEqual(None, a.min())
-    #     self.assertEqual(None, a.max())
+    def test_max_min_sum_of_empty(self):
+        """
+        The max, min or sum of an empty dynamic array is None.
+        """
+        a = DynamicArray()
+        self.assertEqual(None, a.sum())
+        self.assertEqual(None, a.min())
+        self.assertEqual(None, a.max())
 
     # """
     # Search
