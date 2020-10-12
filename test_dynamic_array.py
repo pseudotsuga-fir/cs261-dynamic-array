@@ -518,38 +518,38 @@ class TestDynamicArray(unittest.TestCase):
         self.assertEqual(None, a.min())
         self.assertEqual(None, a.max())
 
-    # """
-    # Search
-    # """
+    """
+    Search
+    """
 
-    # def test_linear_search(self):
-    #     """
-    #     The linear search method returns the index of the first occurence of a
-    #     value value if it exists in the array, or None if it doesn't.
-    #     """
-    #     a = DynamicArray()
-    #     for i in range(5, 1000005):
-    #         a.append(i)
-    #     self.assertEqual(None, a.linear_search('LOVE'))
-    #     self.assertEqual(0, a.linear_search(5))
-    #     start_time = time.time() # Ignore this line, it's just some instrumentation.
-    #     self.assertEqual(999999, a.linear_search(1000004))
-    #     print(f"\nLinear Search Time: {time.time()-start_time}\n")
-    #     random_index = random.randint(0, len(a))
-    #     a.insert(random_index, 1)
-    #     self.assertEqual(random_index, a.linear_search(1))
+    def test_linear_search(self):
+        """
+        The linear search method returns the index of the first occurence of a
+        value value if it exists in the array, or None if it doesn't.
+        """
+        a = DynamicArray()
+        for i in range(5, 1000005):
+            a.append(i)
+        self.assertEqual(None, a.linear_search('LOVE'))
+        self.assertEqual(0, a.linear_search(5))
+        start_time = time.time() # Ignore this line, it's just some instrumentation.
+        self.assertEqual(999999, a.linear_search(1000004))
+        print(f"\nLinear Search Time: {time.time()-start_time}\n")
+        random_index = random.randint(0, len(a))
+        a.insert(random_index, 1)
+        self.assertEqual(random_index, a.linear_search(1))
 
-    # def test_binary_search(self):
-    #     """
-    #     The binary search method returns the index of the first occurence of a
-    #     value value if it exists in the array, or None if it doesn't.
-    #     """
-    #     a = DynamicArray()
-    #     for i in range(5, 1000005):
-    #         a.append(i)
-    #     start_time = time.time() # Ignore this line, it's just some instrumentation.
-    #     self.assertEqual(999999, a.binary_search(1000004))
-    #     print(f"\nBinary Search Time: {time.time()-start_time}\n")
+    def test_binary_search(self):
+        """
+        The binary search method returns the index of the first occurence of a
+        value value if it exists in the array, or None if it doesn't.
+        """
+        a = DynamicArray()
+        for i in range(5, 1000005):
+            a.append(i)
+        start_time = time.time() # Ignore this line, it's just some instrumentation.
+        self.assertEqual(999999, a.binary_search(1000004))
+        print(f"\nBinary Search Time: {time.time()-start_time}\n")
 
 
 def fake_value():

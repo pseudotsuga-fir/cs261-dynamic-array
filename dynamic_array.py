@@ -67,9 +67,10 @@ class DynamicArray:
     def full(self):
         if self.is_full():
             self.capacity += 10
-            temp_array = self.data
-            self.data = np.empty(self.capacity, object)
-            self.data = np.concatenate((temp_array,self.data))
+            self.data.resize(self.capacity)
+            # temp_array = self.data
+            # self.data = np.empty(self.capacity, object)
+            # self.data = np.concatenate((temp_array,self.data))
 
     def max(self):
         max_num = self.data[0]
@@ -99,3 +100,37 @@ class DynamicArray:
         if array_sum == 0:
             return None
         return array_sum
+
+    def linear_search(self, num):
+        for i in range(0,self.length):
+            if self.data[i] == num:
+                return i
+        return None
+
+    def binary_search(self, num):
+        return self.binary_search_actually(num,0,len(self.data))
+        # low_i = 0
+        # mid_i = 0
+        # high_i = self.length-1
+        # while low_i <= high_i:
+        #     mid_i = (high_i + low_i)//2
+        #     if self.data[mid_i] > num:
+        #         high_i = mid_i - 1
+        #     elif self.data[mid_i] < num:
+        #         low_i = mid_i - 1
+        #     else:
+        #         return mid_i
+        # return None
+    
+    def binary_search_actually(self, num, low, high):
+        #I couldn't get the non-recursive one to work for the life of me, and python doesn't support function overloading like java does, so I just made another function.
+        if low >= high:
+            return None
+        mid = (low+high)//2
+        if num == self.data[mid]:
+            return mid
+        if num < self.data[mid]:
+            return self.binary_search_actually(num, low, mid-1)
+        else:
+            return self.binary_search_actually(num, mid+1, high)
+
